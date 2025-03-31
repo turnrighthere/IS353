@@ -23,10 +23,10 @@ def load_json(fname):
         return json.load(f)
 
 def generate_sequences(args):
-    needed_dirs = ['/kaggle/input', f'/kaggle/input/{args.data}']
-    for dir_name in needed_dirs:
-        if not os.path.exists(dir_name):
-            os.makedirs(dir_name)    
+    # needed_dirs = ['/kaggle/input', f'/kaggle/input/{args.data}']
+    # for dir_name in needed_dirs:
+    #     if not os.path.exists(dir_name):
+    #         os.makedirs(dir_name)    
     # Load data
     datadir_path=f'/kaggle/input/{args.data}'
     data = torch.load(os.path.join(datadir_path, 'data.pt'))
