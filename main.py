@@ -30,7 +30,7 @@ from dataloader import *
 
 def main(args):
     # Load data
-    data_path=f'/kaggle/input/{args.data}'
+    data_path=f'/content/MangXaHoi/data/{args.data}'
     data_path = os.path.join(data_dir, 'data.pt')
     g, n_classes = load_data(data_path,  train_rate=args.train_rate, anomaly_rate= args.anomaly_rate,random_state=args.random_state)
     length = args.length
@@ -218,7 +218,7 @@ if __name__ == '__main__':
 
     
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('--data', type=str, default='ethereump-data')
+    argparser.add_argument('--data', type=str, default='EthereumP')
     argparser.add_argument('--model', type=str, default='dualcata-tanh-4')
     argparser.add_argument('--data-name', type=str, default='PyG_BTC_2015')
     argparser.add_argument('--use-unlabeled', type=str, default='SEMI', help="Regard unlabeled samples as negative or not.")
