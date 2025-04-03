@@ -215,10 +215,9 @@ if __name__ == '__main__':
         if not os.path.exists(dir_name):
             os.makedirs(dir_name)
             
-
-    
+    # commit final
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('--data', type=str, default='EthereumP')
+    argparser.add_argument('--data', type=str, default='etherp-data')
     argparser.add_argument('--model', type=str, default='dualcata-tanh-4')
     argparser.add_argument('--data-name', type=str, default='PyG_BTC_2015')
     argparser.add_argument('--use-unlabeled', type=str, default='SEMI', help="Regard unlabeled samples as negative or not.")
