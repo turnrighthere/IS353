@@ -84,10 +84,10 @@ def generate_sequences(args):
     print("Finished edge attribute sequences!")
     # Save
     print("Saving data...")
-    np.save(f'/kaggle/working/data/{args.data}/out_sentences_{length}.npy', res_out)
-    np.save(f'/kaggle/working/data/{args.data}/in_sentences_{length}.npy', res_in)
-    torch.save(lens_out, f'/kaggle/working/data/{args.data}/out_sentences_len_{length}.pt')
-    torch.save(lens_in, f'/kaggle/working/data/{args.data}/in_sentences_len_{length}.pt')            
+    np.save(f'/kaggle/working/MangXaHoi/data/{args.data}/out_sentences_{length}.npy', res_out)
+    np.save(f'/kaggle/working/MangXaHoi/data/{args.data}/in_sentences_{length}.npy', res_in)
+    torch.save(lens_out, f'/kaggle/working/MangXaHoi/data/{args.data}/out_sentences_len_{length}.pt')
+    torch.save(lens_in, f'/kaggle/working/MangXaHoi/data/{args.data}/in_sentences_len_{length}.pt')            
     print("Done!")
     
 if __name__ == '__main__':
