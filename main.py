@@ -30,8 +30,8 @@ from dataloader import *
 
 def main(args):
     # Load data
-    data_path=f'/content/MangXaHoi/data/{args.data}'
-    data_path = os.path.join(data_dir, 'data.pt')
+    data_path=f'/kaggle/input/{args.data}'
+    data_path = os.path.join(data_path, 'data.pt')
     g, n_classes = load_data(data_path,  train_rate=args.train_rate, anomaly_rate= args.anomaly_rate,random_state=args.random_state)
     length = args.length
     sb = 'a'

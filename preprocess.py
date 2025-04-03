@@ -7,8 +7,8 @@ import json
 import os
 import argparse
 from sklearn import preprocessing
-dir='/content/MangXaHoi/data/EthereumP'
-data_dir='/content/MangXaHoi/data/EthereumP'
+dir='/kaggle/input/etherp-data'
+data_dir='/kaggle/input/etherp-data'
 def load_pickle(fname):
     with open(os.path.join(data_dir,fname), 'rb') as f:
         return pickle.load(f)
@@ -23,12 +23,12 @@ def load_json(fname):
         return json.load(f)
 
 def generate_sequences(args):
-    needed_dirs = ['/content/MangXaHoi/data', f'/content/MangXaHoi/data/{args.data}']
+    needed_dirs = ['/kaggle/input', f'/kaggle/input/{args.data}']
     for dir_name in needed_dirs:
         if not os.path.exists(dir_name):
             os.makedirs(dir_name)    
     # Load data
-    datadir_path=f'/content/MangXaHoi/data/{args.data}'
+    datadir_path=f'/kaggle/input/{args.data}'
     data = torch.load(os.path.join(datadir_path, 'data.pt'))
     # 
     edges_index = data.edge_index
@@ -84,15 +84,15 @@ def generate_sequences(args):
     print("Finished edge attribute sequences!")
     # Save
     print("Saving data...")
-    np.save(f'/content/MangXaHoi/data/{args.data}/out_sentences_{length}.npy', res_out)
-    np.save(f'/content/MangXaHoi/data/{args.data}/in_sentences_{length}.npy', res_in)
-    torch.save(lens_out, f'/content/MangXaHoi/data/{args.data}/out_sentences_len_{length}.pt')
-    torch.save(lens_in, f'/content/MangXaHoi/data/{args.data}/in_sentences_len_{length}.pt')            
+    np.save(f'/kaggle/working/data/{args.data}/out_sentences_{length}.npy', res_out)
+    np.save(f'/kaggle/working/data/{args.data}/in_sentences_{length}.npy', res_in)
+    torch.save(lens_out, f'/kaggle/working/data/{args.data}/out_sentences_len_{length}.pt')
+    torch.save(lens_in, f'/kaggle/working/data/{args.data}/in_sentences_len_{length}.pt')            
     print("Done!")
     
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('--data', type=str, default='EthereumP')
+    argparser.add_argument('--data', type=str, default='etherp-data')
     argparser.add_argument('--sort-by', type=int, default=-1,
                         help="Sort txes by which attribute dim")
     argparser.add_argument('--length', type=int, default=32,
